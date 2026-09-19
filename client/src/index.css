@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, .font-serif-royal {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom festive background styling */
+.bg-maroon-gradient {
+  background: linear-gradient(135deg, #340e0e 0%, #6d2424 40%, #800000 100%);
+}
+
+.bg-maroon-radial {
+  background: radial-gradient(circle at center, #800000 0%, #4a0303 60%, #200000 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0B2 0%, #D4AF37 50%, #B38600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-image: linear-gradient(to right, #D4AF37, #F5DEB3, #D4AF37) 1;
+}
+
+/* Glassmorphism for cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-panel-dark {
+  background: rgba(52, 14, 14, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ede9;
+}
+::-webkit-scrollbar-thumb {
+  background: #800000;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5c2222;
+}
