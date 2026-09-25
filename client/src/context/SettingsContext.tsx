@@ -6,7 +6,7 @@ const initialSettings: ISiteSettings = {
   businessName: 'BALAJI TENT HOUSE',
   ownerName: 'Yamuna Shankar Bairagi',
   phone: '+919783950350',
-  email: 'himansu@gmail.com',
+  email: 'contact@balajitenthouses.com',
   address: 'Malka khera, sarkari samiti ke samne, bijoliya, Bhilwara',
   ownerPhotoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
   logoUrl: '',

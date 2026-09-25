@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Shield, Lock, Mail, ArrowLeft, KeyRound, AlertCircle, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Shield, Lock, Mail, ArrowLeft, KeyRound, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useSettings } from '../context/SettingsContext';
 
@@ -18,12 +18,6 @@ export const AdminLoginPage: React.FC = () => {
   if (user) {
     navigate('/admin/dashboard', { replace: true });
   }
-
-  const handleFillDemo = () => {
-    setEmail('himansu@gmail.com');
-    setPassword('123456789');
-    setError('');
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,26 +67,8 @@ export const AdminLoginPage: React.FC = () => {
             Admin Portal
           </h1>
           <p className="text-xs text-gold-300 mt-1">
-            {settings.businessName} • Control Center
+            {settings.businessName} • Secure Control Center
           </p>
-        </div>
-
-        {/* Quick Demo Credentials Fill Button */}
-        <div className="mb-6 p-3.5 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-between gap-3">
-          <div className="text-left">
-            <div className="flex items-center gap-1 text-[11px] font-bold text-gold-300 uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Owner Access</span>
-            </div>
-            <p className="text-xs text-slate-300 font-mono mt-0.5">himansu@gmail.com / 123456789</p>
-          </div>
-          <button
-            type="button"
-            onClick={handleFillDemo}
-            className="px-3 py-1.5 rounded-lg bg-gold-400 hover:bg-gold-300 text-maroon-950 text-xs font-bold shrink-0 transition-colors shadow-sm"
-          >
-            Auto Fill
-          </button>
         </div>
 
         {/* Error Alert */}
@@ -104,7 +80,7 @@ export const AdminLoginPage: React.FC = () => {
         )}
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">
               Admin Email
@@ -116,7 +92,8 @@ export const AdminLoginPage: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="himansu@gmail.com"
+                autoComplete="email"
+                placeholder="admin@example.com"
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-maroon-950/70 border border-gold-500/30 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm"
               />
             </div>
@@ -133,7 +110,8 @@ export const AdminLoginPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="•••••••••"
+                autoComplete="current-password"
+                placeholder="••••••••••••"
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-maroon-950/70 border border-gold-500/30 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm"
               />
             </div>
@@ -155,7 +133,7 @@ export const AdminLoginPage: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-gold-500/20 text-center">
           <p className="text-[11px] text-slate-400">
-            Authorized administrator access for {settings.ownerName}.
+            Authorized administrator access only. All sessions are encrypted.
           </p>
         </div>
       </div>

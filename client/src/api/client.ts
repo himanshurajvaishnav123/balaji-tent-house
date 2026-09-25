@@ -1,16 +1,10 @@
 import axios from 'axios';
 
-// HARDCODE the production backend API base URL directly (no process.env or VITE_ variables)
-const PRODUCTION_API = 'https://balaji-tent-house-backend.onrender.com/api';
-
-// In local browser development (localhost/127.0.0.1), use relative '/api' which Vite dev server proxies.
-// In production (e.g. deployed on Vercel at *.vercel.app), use the hardcoded production Render URL directly.
-const isLocal =
-  typeof window !== 'undefined' &&
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+// Dynamically use Vite environment variable with local fallback
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export const api = axios.create({
-  baseURL: isLocal ? '/api' : PRODUCTION_API,
+  baseURL,
   withCredentials: true,
 });
 

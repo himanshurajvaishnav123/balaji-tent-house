@@ -23,7 +23,7 @@ const seedDatabase = async () => {
     const adminEmail = (process.env.ADMIN_EMAIL || 'himansu@gmail.com').toLowerCase().trim();
     const adminPassword = process.env.ADMIN_PASSWORD || '123456789';
     const adminName = process.env.ADMIN_NAME || 'Yamuna Shankar Bairagi';
-    const adminPhone = process.env.ADMIN_PHONE || '+919783950350';
+    const adminPhone = process.env.ADMIN_NUMBER || process.env.ADMIN_PHONE || '+919783950350';
 
     let admin = await User.findOne({ email: adminEmail });
     if (!admin) {
